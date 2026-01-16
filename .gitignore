@@ -1,43 +1,66 @@
-# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+##################################
+# Node / Angular
+##################################
+node_modules/
+dist/
+out-tsc/
+.tmp/
+.cache/
 
-# Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
+##################################
+# Angular build / cache
+##################################
+.angular/
+.angular/cache/
 
-# Node
-/node_modules
-npm-debug.log
-yarn-error.log
+##################################
+# Logs
+##################################
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
 
-# IDEs and editors
-.idea/
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
+##################################
+# VS Code
+##################################
+.vscode/
 
-# Visual Studio Code
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
-
-# Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
-__screenshots__/
-
-# System files
+##################################
+# Sistema Operativo
+##################################
 .DS_Store
 Thumbs.db
+
+##################################
+# Entornos / secretos
+##################################
+.env
+.env.*
+!.env.example
+
+##################################
+# Archivos temporales
+##################################
+tmp/
+temp/
+*.tmp
+*.swp
+
+##################################
+# Archivos de respaldo
+##################################
+*.bak
+*.old
+*.orig
+
+##################################
+# Tests / Coverage
+##################################
+coverage/
+
+##################################
+# Angular Universal (si luego usas SSR)
+##################################
+server/

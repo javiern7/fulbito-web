@@ -1,0 +1,27 @@
+<div style="max-width:360px;margin:40px auto;">
+  <h2>Fulbito - Login</h2>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div>
+      <label>Email</label>
+      <input type="email" formControlName="email" style="width:100%;padding:8px;">
+    </div>
+
+    <div style="margin-top:10px;">
+      <label>Password</label>
+      <input type="password" formControlName="password" style="width:100%;padding:8px;">
+    </div>
+
+    <button style="margin-top:12px;padding:10px 12px;" [disabled]="loading || form.invalid">
+      {{ loading ? 'Ingresando...' : 'Ingresar' }}
+    </button>
+
+    <p *ngIf="error" style="color:#ff6b6b;margin-top:10px;">{{ error }}</p>
+
+    <hr style="margin:16px 0;">
+    <small>
+      Admin: admin@fulbito.com / Admin123* <br/>
+      User: user@fulbito.com / User123*
+    </small>
+  </form>
+</div>

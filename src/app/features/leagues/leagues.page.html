@@ -1,0 +1,47 @@
+<div style="max-width:900px;margin:20px auto;padding:0 12px;">
+  <div style="display:flex;justify-content:space-between;align-items:center;">
+    <h2>Ligas</h2>
+    <div>
+      <span style="margin-right:10px;">Rol: <b>{{ auth.role() }}</b></span>
+      <button (click)="logout()">Salir</button>
+    </div>
+  </div>
+
+  <p *ngIf="error" style="color:#ff6b6b;">{{ error }}</p>
+  <p *ngIf="loading">Cargando...</p>
+
+  <!-- ADMIN: formulario -->
+  <div *ngIf="auth.isAdmin()" style="border:1px solid #333;padding:12px;border-radius:8px;margin-bottom:16px;">
+    <h3>Crear liga (ADMIN)</h3>
+    <form [formGroup]="form" (ngSubmit)="create()">
+      <div style="display:flex;gap:8px;">
+        <input placeholder="Nombre" formControlName="name" style="flex:1;padding:8px;">
+        <input placeholder="Ciudad" formControlName="city" style="flex:1;padding:8px;">
+        <button [disabled]="form.invalid">Crear</button>
+      </div>
+    </form>
+  </div>
+
+  <table style="width:100%;border-collapse:collapse;">
+    <thead>
+      <tr>
+        <th style="text-align:left;border-bottom:1px solid #444;padding:8px;">ID</th>
+        <th style="text-align:left;border-bottom:1px solid #444;padding:8px;">Nombre</th>
+        <th style="text-align:left;border-bottom:1px solid #444;padding:8px;">Ciudad</th>
+        <th style="text-align:left;border-bottom:1px solid #444;padding:8px;">Activo</th>
+        <th style="text-align:left;border-bottom:1px solid #444;padding:8px;" *ngIf="auth.isAdmin()">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let l of leagues">
+        <td style="padding:8px;border-bottom:1px solid #222;">{{ l.id }}</td>
+        <td style="padding:8px;border-bottom:1px solid #222;">{{ l.name }}</td>
+        <td style="padding:8px;border-bottom:1px solid #222;">{{ l.city || '-' }}</td>
+        <td style="padding:8px;border-bottom:1px solid #222;">{{ l.active ? 'SI' : 'NO' }}</td>
+        <td style="padding:8px;border-bottom:1px solid #222;" *ngIf="auth.isAdmin()">
+          <button (click)="deactivate(l.id)">Desactivar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
