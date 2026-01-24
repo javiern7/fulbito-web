@@ -11,3 +11,10 @@
 ```bash
 npm install
 ng serve -o
+
+Known issue:
+- npm audit reports high severity vulnerability in tar dependency
+- Comes from @angular/cli -> pacote -> tar
+- Build-time only, no runtime exposure
+- Fix requires Angular CLI 21 (breaking change)
+- Will be addressed on Angular major upgrade
