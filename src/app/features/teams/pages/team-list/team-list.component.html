@@ -1,0 +1,24 @@
+<div class="max-w-5xl mx-auto p-4">
+  <div class="flex justify-between items-center mb-4">
+    <h2 class="text-2xl font-extrabold">Equipos</h2>
+
+    <a routerLink="/teams/new">
+      <button mat-flat-button color="primary">Nuevo equipo</button>
+    </a>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <mat-card *ngFor="let team of teams" class="rounded-xl shadow-lg p-4 bg-white">
+      <img [src]="team.logoUrl || 'assets/teams/logos/logo1.svg'"
+           class="h-24 mx-auto mb-3"
+           alt="Escudo equipo" />
+
+      <h3 class="text-center font-bold text-lg">{{ team.name }}</h3>
+
+      <div class="flex justify-center gap-2 mt-2">
+        <span class="w-4 h-4 rounded-full" [style.background]="team.colorPrimary"></span>
+        <span class="w-4 h-4 rounded-full" [style.background]="team.colorSecondary"></span>
+      </div>
+    </mat-card>
+  </div>
+</div>

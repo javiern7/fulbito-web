@@ -5,6 +5,9 @@
       <span style="margin-right:10px;">Rol: <b>{{ auth.role() }}</b></span>
       <button (click)="logout()">Salir</button>
     </div>
+    <a routerLink="/teams" style="margin-right:10px;">
+      <button>Equipos</button>
+    </a>
   </div>
 
   <p *ngIf="error" style="color:#ff6b6b;">{{ error }}</p>

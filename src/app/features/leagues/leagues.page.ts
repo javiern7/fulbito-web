@@ -4,10 +4,11 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 
 import { LeaguesService, League } from './leagues.service';
 import { AuthService } from '../../core/auth/auth.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink],
   templateUrl: './leagues.page.html',
 })
 export class LeaguesPage {
